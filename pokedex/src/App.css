@@ -26,3 +26,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.navbar-container {
+  width: 80%;
+  height: 10vh;
+  border-style: solid;
+  border-color: blue;
+  background-color: #222;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav-item {
+font-size: 35px;
+color:white;
+}

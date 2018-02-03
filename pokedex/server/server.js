@@ -35,8 +35,9 @@ passport.use(new Auth0Strategy({
     domain: process.env.AUTH_DOMAIN,
     clientID: process.env.AUTH_CLIENT_ID,
     clientSecret: process.env.AUTH_CLIENT_SECRET,
-    callbackURL: process.env.CALLBACK_URL
-}, function(accessToken, refreshToken, extraParams, profile, done){
+    callbackURL: process.env.AUTH_CALLBACK_URL
+}, 
+    function(accessToken, refreshToken, extraParams, profile, done){
     //db calls will go here
     
     const db = app.get('db') //after db is set, make a const that is equal to an app.get('db');
@@ -90,39 +91,13 @@ passport.deserializeUser( (id, done) => {//deserializeUser also takes a callback
 });
 
 
-app.get('/api/allblogs', controller.getBlogs)
-//set endpoint named what you want then add the logic
-//from the controller function
-
-
-app.get('/api/allphotos', controller.getPhotos)
-
-app.get('/api/post/:id', controller.getPost)
-
-app.get('/api/comments/:id', controller.getComments)
-
-app.post('/api/addphoto', controller.addPhoto)
-
-app.post('/api/postcomment', controller.addComment)
-
-app.post('/api/addblog', controller.addBlog)
-
-app.delete('/api/deletecomment', controller.deleteComment)
-
-app.delete('/api/deletepost/:id', controller.deletePost)
-
-app.delete('/api/deletephoto/:id', controller.deletePhoto)
-
-
-
-
-
-
-
 const path = require('path')
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));
 })
+
+
+// app.get('/api/allpokemon', controller.allPokemon)
 
 
 const port = 3001;
