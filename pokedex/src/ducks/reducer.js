@@ -8,15 +8,14 @@ const initialState = {
 const GET_POKEMON = 'GET_POKEMON';
 
 export function getPokemon() {
-    console.log('getPokemon fired')
-    const pokemon = axios.get('/api/allpokemon')
-    .then( res => {
-        console.log('getPokemon: ', res.data)
-        return res.data
-    })
+        const pokeGrab = 'http://pokeapi.co/api/v2/pokemon/';
+       const pokeFunction = axios.get(`${pokeGrab}?limit=40/`).then(res => { 
+            return res.data.results
+            console.log('this.state.pokemon:', this.state.pokemon)
+        })
     return {
         type:GET_POKEMON,
-        payload:pokemon
+        payload:pokeFunction
     }
 }
 
@@ -33,6 +32,7 @@ export function getUserInfo() {
         payload:userData
     }
 }
+
 
 
 

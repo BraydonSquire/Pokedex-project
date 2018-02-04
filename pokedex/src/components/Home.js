@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Nav from './Nav';
-import { getUserInfo } from '../ducks/reducer';
+import { getUserInfo, getPokemon } from '../ducks/reducer';
 import { connect } from 'react-redux';
 
 class Home extends Component {
@@ -17,6 +17,7 @@ constructor() {
 
 componentDidMount(){
     this.props.getUserInfo()
+    this.props.getPokemon()
     // const pokeapi = 'http://pokeapi.co/api/v2/';
     // () => axios.get(`${pokeapi}pokemon/1`).then(res => {this.setState({pokemon:res.data}), console.log(this.state.pokemon)})
 }
@@ -42,8 +43,9 @@ componentDidMount(){
 
 function mapStateToProps(state) {
     return {
-        userInfo: state.userInfo
+        userInfo: state.userInfo,
+        pokemon: state.pokemon
     }
 }
 
-export default connect(mapStateToProps, { getUserInfo })(Home);
+export default connect(mapStateToProps, { getUserInfo, getPokemon })(Home);

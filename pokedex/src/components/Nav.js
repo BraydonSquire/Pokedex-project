@@ -37,8 +37,11 @@ class Nav extends Component {
                 </div>
             <div className="navbar-container">
                 <Link to="/pokemon"> <div className="nav-item">Pokemon</div> </Link>
-                {this.state.loggedIn === true ? <p> this.props.userInfo.user_name </p> : null}
-                <a href={ process.env.REACT_APP_LOGIN }><div className="nav-item">Login</div></a>   
+                {this.props.userInfo !== {} ? <p> {this.props.userInfo.user_name} </p> : null}
+                {this.props.userInfo.img != null ? <img className="profile-photo" src={this.props.userInfo.img} /> : null}
+                {this.props.userInfo.user_name != null ? <a href={process.env.REACT_APP_LOGOUT}> <div className="nav-item">Logout</div></a> : <a href={ process.env.REACT_APP_LOGIN }><div className="nav-item">Login</div></a> }
+                   
+            
             </div>
             </div>
         )
