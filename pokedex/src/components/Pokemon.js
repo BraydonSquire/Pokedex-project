@@ -15,6 +15,7 @@ class Pokemon extends Component {
             }}]
         }
         // this.getPokemon = this.getPokemon.bind(this)
+        this.scrapeData = this.scrapeData.bind(this)
     }
 
     // getPokemon(){
@@ -28,6 +29,13 @@ class Pokemon extends Component {
     componentDidMount() {
        this.props.getPokemon()
        console.log(this.props.pokemon,"pokemon data")
+    }
+
+    scrapeData() {
+        for (let i = 0; i< this.props.pokemon.length; i++) {
+            axios.put('api/scrapedata',this.props.pokemon[i].name)
+        }
+        
     }
 
 
@@ -46,6 +54,7 @@ class Pokemon extends Component {
         return(
             <div className="page-container">
             <Nav />
+            <button onClick={this.scrapeData()}>scrape DATA</button>
             <div className="pokemon-container">
             {/* <button onClick={() => this.props.getPokemon()}>click me</button> */}
             {list}

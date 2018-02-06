@@ -99,7 +99,7 @@ passport.deserializeUser( (id, done) => {//deserializeUser also takes a callback
 
 // app.get('/api/allpokemon', controller.allPokemon)
 
-
+app.put('/api/scrapedata', controller.scrapeData)
 
 
 const port = 3001;

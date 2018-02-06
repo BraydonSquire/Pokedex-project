@@ -9,7 +9,7 @@ const GET_POKEMON = 'GET_POKEMON';
 
 export function getPokemon() {
         const pokeGrab = 'http://pokeapi.co/api/v2/pokemon/';
-       const pokeFunction = axios.get(`${pokeGrab}?limit=40/`).then(res => { 
+       const pokeFunction = axios.get(`${pokeGrab}?limit=949`).then(res => { 
             return res.data.results
             console.log('this.state.pokemon:', this.state.pokemon)
         })
