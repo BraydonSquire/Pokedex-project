@@ -75,7 +75,7 @@ app.get('/auth/me', (req, res) => {
 
 app.get('/auth/logout', (req, res) => {
     req.logOut();
-    res.redirect(302, process.env.LOGOUT_REDIRECT)
+    res.redirect(302, process.env.REACT_APP_LOGOUT)
 })
 
 passport.serializeUser( (id, done) => {
@@ -90,14 +90,16 @@ passport.deserializeUser( (id, done) => {//deserializeUser also takes a callback
     })
 });
 
-
-const path = require('path')
-app.get('*', (req, res)=>{
-  res.sendFile(path.join(__dirname, '../build/index.html'));
-})
+// this bit is for  deploying on a drplet
+// const path = require('path')
+// app.get('*', (req, res)=>{
+//   res.sendFile(path.join(__dirname, '../build/index.html'));
+// })
 
 
 // app.get('/api/allpokemon', controller.allPokemon)
+
+app.put('/api/scrapedata', controller.scrapeData)
 
 
 const port = 3001;

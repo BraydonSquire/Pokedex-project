@@ -44,3 +44,24 @@
 font-size: 35px;
 color:white;
 }
+
+.profile-photo {
+  height: 100%;
+  width: 12%;
+  border-radius: 8px;
+  margin-left: 10%;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.pokemon-item {
+  height: 10%;
+  width: 10%;
+}
